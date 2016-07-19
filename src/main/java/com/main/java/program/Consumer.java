@@ -1,12 +1,11 @@
 package com.main.java.program;
 
-import javax.jms.MessageConsumer;
-
-import org.apache.log4j.Logger;
-
 /**
  * A class consumer is the client of JMS which is used as Message Consumer which
  * consumes message from the queue.
+ * 
+ * This class sends the queueName to ActiveMqManager to consume the message from
+ * the queue.
  * 
  * @author umesh
  * 
@@ -16,11 +15,8 @@ import org.apache.log4j.Logger;
 
 public class Consumer {
 
-	private static Logger LOGGER = Logger.getLogger(Consumer.class);
-
 	public static void main(String[] args) {
-		MessageConsumer consumer = ActiveMqManager.getConsumer();
-		LOGGER.info(consumer);
+		ActiveMqManager.getInstance().receiveMessage("QueueOne");
 	}
 
 }

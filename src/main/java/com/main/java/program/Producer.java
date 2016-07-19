@@ -1,12 +1,11 @@
 package com.main.java.program;
 
-import javax.jms.MessageProducer;
-
-import org.apache.log4j.Logger;
-
 /**
  * A class producer is the Client of JMS which is used as Message producer which
  * produces the messages into the queue.
+ * 
+ * This class sends the queueName and message to ActiveMqManager class to
+ * produce that message into queue.
  * 
  * @author umesh
  * 
@@ -14,11 +13,9 @@ import org.apache.log4j.Logger;
  *
  */
 public class Producer {
-	
-	private static Logger LOGGER = Logger.getLogger(Producer.class);
 
 	public static void main(String[] args) {
-		MessageProducer producer = ActiveMqManager.getProducer("Razorthink");
-		LOGGER.info(producer);
+
+		ActiveMqManager.getInstance().sendMessage("QueueOne", "razorthink");
 	}
 }
